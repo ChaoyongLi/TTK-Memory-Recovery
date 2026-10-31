@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:TtkMemoryRecover"
+        x:Class="TtkMemoryRecover.MainWindow"
+        Title="TTK Memory Recover"
+        Width="1100" Height="720" MinWidth="720" MinHeight="480"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border x:Name="StartPanel" Classes="card" Width="480" Padding="36"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="16">
+                <TextBlock Text="TTK Memory Recover" FontSize="26" FontWeight="SemiBold"
+                           HorizontalAlignment="Center" />
+                <TextBlock x:Name="StartVersion" Classes="muted" FontSize="12" HorizontalAlignment="Center" />
+                <TextBlock Classes="muted" Text="Select an IMG file to begin." HorizontalAlignment="Center" />
+                <Button x:Name="OpenButton" Classes="primary" Content="Open IMG File..."
+                        HorizontalAlignment="Center" Click="OpenButton_Click" />
+                <TextBlock x:Name="StartStatus" TextWrapping="Wrap" HorizontalAlignment="Center"
+                           Foreground="#DC2626" />
+            </StackPanel>
+        </Border>
+
+        <DockPanel x:Name="MainPanel" IsVisible="False" Margin="16">
+            <Border DockPanel.Dock="Top" Classes="card" Padding="14,10" Margin="0,0,0,12">
+                <DockPanel>
+                    <TextBlock x:Name="HeaderVersion" DockPanel.Dock="Right" Classes="muted"
+                               Margin="12,0,0,0" VerticalAlignment="Center" />
+                    <TextBlock x:Name="FileInfoText" Classes="muted" TextWrapping="Wrap" />
+                </DockPanel>
+            </Border>
+            <TabControl Background="Transparent">
+                <TabItem Header="Time Recovery">
+                    <local:TimeRecoveryView x:Name="TimeView" />
+                </TabItem>
+                <TabItem Header="Memory Recovery">
+                    <local:MemoryRecoveryView x:Name="MemoryView" />
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>
