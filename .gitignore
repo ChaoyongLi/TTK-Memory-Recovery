@@ -12,5 +12,3 @@ wheels/
 # .NET build output
 bin/
 obj/
-publish/
-publish-aot/
